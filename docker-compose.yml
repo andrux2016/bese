@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    image: ruby:2.4.2
+    command: ruby application.rb
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+      - bundle:/usr/local/bundle
+      - database:/usr/local/databases
+    ports:
+      - '4567:4567'
+
+volumes:
+  bundle:
+  database:
